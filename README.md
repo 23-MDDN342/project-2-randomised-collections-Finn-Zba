@@ -4,5 +4,6 @@
 **This is where you talk about your project!**
 
 >This starter code is just some simple faces being drawn. 
+>(late), git commit of sketches
 
 
