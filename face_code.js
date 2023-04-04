@@ -15,7 +15,7 @@
  */
 function orangeAlienFace(tilt_value, eye_value, mouth_value) {
   const bg_color3 = [71, 222, 219];
-  const fg_color3 = [255, 93, 35];
+  const fg_color3 = [58, 31, 4];
 
   let headSize = 20
   let eyeSize = 5;
@@ -53,7 +53,7 @@ function orangeAlienFace(tilt_value, eye_value, mouth_value) {
 
 
 function simplePurpleFace() {
-  fill(234, 122, 244);
+  fill(153, 121, 80);
   noStroke();
   // head
   ellipse(0, 0, 20);
@@ -69,7 +69,7 @@ function simplePurpleFace() {
 function blockyFace(thinness_value) {
   // head
   noStroke();
-  fill(134, 19, 136);
+  fill(121, 92, 50);
   let head_width = map(thinness_value, 0, 100, 8, 20);
   rect(-head_width/2, -9, head_width, 18);
  

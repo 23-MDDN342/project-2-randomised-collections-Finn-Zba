@@ -26,7 +26,7 @@ function changeRandomSeed() {
 }
 
 // global variables for colors
-const bg_color1 = [71, 222, 219]
+const bg_color1 = [98, 42, 15];
 
 function mouseClicked() {
   changeRandomSeed();
@@ -45,8 +45,8 @@ function draw () {
   noStroke();
 
   // draw a 7x4 grid of faces
-  let w = canvasWidth / 7;
-  let h = canvasHeight / 4;
+  let w = canvasWidth / 5;
+  let h = canvasHeight / 3;
   for(let i=0; i<4; i++) {
     for(let j=0; j<7; j++) {
       let y = h/2 + h*i;
