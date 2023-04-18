@@ -17,11 +17,11 @@ function orangeAlienFace(tilt_value, eye_value, mouth_value) {
   const bg_color3 = [71, 222, 219];
   const fg_color3 = [58, 31, 4];
 
-  let headSize = 20
-  let eyeSize = 5;
+  let headSize = 10
+  let eyeSize = 2;
   let centerX = 0;
   let Iy = -4
-  let distactBetweenEyes = 5
+  let distactBetweenEyes = 3
   let MouthDrop = 7
   
   // rotation in degrees
@@ -30,9 +30,12 @@ function orangeAlienFace(tilt_value, eye_value, mouth_value) {
 
  // head
   noStroke();
-  fill(fg_color3);
-  ellipse(centerX, 0, headSize, headSize);
-
+  fill(0);
+  
+ // ellipse(centerX, 0, headSize, headSize);
+  rect(-5, -7, headSize, headSize);
+  fill(0);
+  triangle(-5,3,0,8,5,3);
   // 2 traditonal eyes
   if (eye_value === 1 || eye_value == 3) {
     fill(bg_color3);
@@ -41,14 +44,14 @@ function orangeAlienFace(tilt_value, eye_value, mouth_value) {
   }
 // middle eye
   if (eye_value >= 2) {
-    fill(bg_color3);
+    fill(255);
     ellipse(centerX - distactBetweenEyes, Iy, eyeSize);
     ellipse(centerX + distactBetweenEyes, Iy, eyeSize );
   }
 
   // mouth
   fill(bg_color3);
-  ellipse(centerX, Iy + MouthDrop, distactBetweenEyes, mouth_value);
+//  ellipse(centerX, Iy + MouthDrop, distactBetweenEyes, mouth_value);
 }
 
 
@@ -56,7 +59,8 @@ function simplePurpleFace() {
   fill(153, 121, 80);
   noStroke();
   // head
-  ellipse(0, 0, 20);
+  //ellipse(0, 0, 20);
+
   // eyes
   fill(255, 217, 114);
   ellipse(-3, -3, 3);
@@ -72,7 +76,7 @@ function blockyFace(thinness_value) {
   fill(121, 92, 50);
   let head_width = map(thinness_value, 0, 100, 8, 20);
   rect(-head_width/2, -9, head_width, 18);
- 
+
 
   // eyes
   fill(234, 122, 244);

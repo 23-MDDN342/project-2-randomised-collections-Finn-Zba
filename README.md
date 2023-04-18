@@ -6,3 +6,5 @@
 >(late), git commit of sketches
 
 
+18/04/23
+Made a face and learnt about how to utilize the editor. basicly practice and play with the masks shape of a triangle/ellipse. 
