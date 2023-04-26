@@ -50,8 +50,6 @@ function setup () {
   faceSelector.parent('selector1Container');
 }
 
-
-
 function draw () {
   strokeWeight(0.2);
 
@@ -88,8 +86,10 @@ function draw () {
    let tilt_value = map(s1, 0, 100, -90, 90);
    let mouth_value = map(s2, 0, 100, 0.5, 10);
    let eye_value = int(map(s3, 0, 100, 1, 3));
-   let feather_value = (map(s4, 0, 100, 1, 3))
-   orangeAlienFace(tilt_value, eye_value, mouth_value,feather_value);
+   let feather_value = (map(s4, 0, 100, 1, 3));
+   let Fdet_value = (map(s5, 0, 100, 1, 3));
+   let Brow_value = (map(s6, 0, 100, 0, 3));
+   orangeAlienFace(tilt_value, eye_value, mouth_value,feather_value, Fdet_value, Brow_value);
   }
 
   if (mode == 'Thickius') {
