@@ -13,8 +13,8 @@
  * eye_value is an integer number of eyes: either 0, 1, 2, or 3
  * mouth_value is how open the mouth is and should generally range from 0.5 to 10
  */
-function orangeAlienFace(tilt_value, eye_value, mouth_value) {
-  const bg_color3 = [71, 222, 219];
+function orangeAlienFace(tilt_value, eye_value, mouth_value, feather_value) {
+  const bg_color3 = [122, 67, 43];
   const fg_color3 = [58, 31, 4];
 
   let headSize = 10
@@ -24,18 +24,45 @@ function orangeAlienFace(tilt_value, eye_value, mouth_value) {
   let distactBetweenEyes = 3
   let MouthDrop = 7
   
-  // rotation in degrees
+////////////// Rotate face (slider 1) //////////////
   angleMode(DEGREES);
   rotate(tilt_value);
 
- // head
+////////////// head shape //////////////
   noStroke();
-  fill(0);
+  fill(122, 67, 43);
   
  // ellipse(centerX, 0, headSize, headSize);
   rect(-5, -7, headSize, headSize);
-  fill(0);
+  fill(122, 67, 43);
   triangle(-5,3,0,8,5,3);
+  
+////////////// Mouth shape (slider 2) //////////////
+   // feather
+   fill(bg_color3);
+   stroke(0);
+   if (mouth_value >= 1) {
+     //fill(0);
+     ellipse(0,0,1,1);
+ 
+   }
+ // feather
+   if (mouth_value >= 2) {
+     fill(0);
+     ellipse(0,0,3,3);
+ 
+   }
+ 
+   if (mouth_value >= 3) {
+     fill(0);
+     noStroke();
+     quad(1, 1, 2, 2, 3, 3, 4, 4)
+ 
+   } 
+
+  
+////////////// Eye shape (slider 3) //////////////
+  
   // 2 traditonal eyes
   if (eye_value === 1 || eye_value == 3) {
     fill(bg_color3);
@@ -45,13 +72,40 @@ function orangeAlienFace(tilt_value, eye_value, mouth_value) {
 // middle eye
   if (eye_value >= 2) {
     fill(255);
+    stroke(0);
     ellipse(centerX - distactBetweenEyes, Iy, eyeSize);
     ellipse(centerX + distactBetweenEyes, Iy, eyeSize );
   }
 
-  // mouth
+
+  ////////////// Head detail (slider 4) //////////////
+  // feather
   fill(bg_color3);
-//  ellipse(centerX, Iy + MouthDrop, distactBetweenEyes, mouth_value);
+  stroke(0);
+  if (feather_value >= 1) {
+    //fill(0);
+    
+    line(0,-7, 0,-10);
+
+  }
+// feather
+  if (feather_value >= 2) {
+    fill(0);
+    line(0,-7, 0,-10);
+    line(0,-7, 3, -10);
+    line(-3,-10, 0, -7);
+
+  }
+
+  if (feather_value >= 3) {
+    fill(0);
+    stroke(235, 219, 38);
+    line(0,-7, 0,-10);
+
+  }
+
+
+////////////// end of face 1 //////////////
 }
 
 
