@@ -8,3 +8,9 @@
 
 18/04/23
 Made a face and learnt about how to utilize the editor. basicly practice and play with the masks shape of a triangle/ellipse. 
+
+21/04/23
+I fucked round and found out and now everythings a mess
+
+26/04/23 pt1
+Holy fuck this became a mess. Howver despite a messy code breaking cluster fuck of a past 7 days (breaking a code/erasing it), we have a slight bit of content. here the arrangment (council of masks) has been made as well as a better representation  putting the ui on what i want to add to my masks. 
