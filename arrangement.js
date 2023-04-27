@@ -57,7 +57,7 @@ function draw () {
         let mouth_value = random(3,4);
         let feather_value = random(3,4);
         let Fdet_value = random(1,4);
-        let Brow_value = random(0,4);
+        let Brow_value = random(1,4);
         let is_cyclops = random(0, 100);
 
         if(is_cyclops < 10) {

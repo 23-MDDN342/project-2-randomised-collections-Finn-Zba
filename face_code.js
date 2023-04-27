@@ -13,7 +13,7 @@
  * eye_value is an integer number of eyes: either 0, 1, 2, or 3
  * mouth_value is how open the mouth is and should generally range from 0.5 to 10
  */
-function orangeAlienFace(tilt_value, eye_value, mouth_value, feather_value, Fdet_value) {
+function orangeAlienFace(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value) {
   const bg_color3 = [122, 67, 43];
   const fg_color3 = [58, 31, 4];
 
@@ -42,12 +42,12 @@ function orangeAlienFace(tilt_value, eye_value, mouth_value, feather_value, Fdet
    stroke(0); //black
    if (mouth_value >= 1) {
      //fill(0);
-     ellipse(0,0,1,1);
+     ellipse(0,1.1,1,1);
  
    }
    if (mouth_value >= 2) {
      fill(0);
-     ellipse(0,0,3,3);
+     ellipse(0,1.1,3,3);
  
    }
  
@@ -76,7 +76,6 @@ function orangeAlienFace(tilt_value, eye_value, mouth_value, feather_value, Fdet
     ellipse(centerX + distactBetweenEyes, Iy, eyeSize );
   }
 
-
   ////////////// Head detail (slider 4) //////////////
   // feather
   fill(bg_color3);
@@ -103,27 +102,48 @@ function orangeAlienFace(tilt_value, eye_value, mouth_value, feather_value, Fdet
   if (Fdet_value >= 1) {
     stroke(arrweight-0.5);
     fill(224, 27, 27);
-    ellipse(0, -5, 1,1);
+   // ellipse(0, -5, 1,1);
   }
 
   if (Fdet_value >= 2) {
     fill(56, 214, 39);
-    triangle(-2,-6,0,-4,2,-6);
+   // triangle(-2,-6,0,-4,2,-6);
   }
 
   if (Fdet_value >= 3) {
     fill(56, 214, 39);
-    square(-2,-6,2,2);
+    //square(-2,-6,2,2);
   }
  
 ////////////// Eyebrow detail (slider 6) //////////////
-if (Brow_value >= 1) {
-  stroke(arrweight-0.5);
+
+//////Upwards/////
+if (Brow_value > 2) {
+  stroke(arrweight-0.8);
   fill(224, 27, 27);
-  rect(0, -5, 1,1);
+  rotate(-15)
+  rect(2.5, -4.5, 3,0.5); //Left eyebrow
+  rotate(30)
+  rect(-5, -4.5, 3,0.5); //right eyebrow
 }
 
+//////Downwards//////
+if (Brow_value < 2) {
+  stroke(arrweight-0.8);
+  fill(224, 27, 27);
+  rotate(-15)
+  rect(-3, -6.5, 3,0.5); //Left eyebrow
+  rotate(30)
+  rect(0, -6.5, 3,0.5); //right eyebrow
+}
 
+//////side? (idk how to describe it)//////
+if (Brow_value === 2) {
+  stroke(arrweight-0.8);
+  fill(224, 27, 27);
+  rect(-4.3, -5.5, 2.8,0.5); //Left eyebrow
+  rect(1.7, -5.5, 2.8,0.5);  
+}
 
 ////////////// Ear detail (slider 7) //////////////
 
@@ -142,16 +162,9 @@ if (Brow_value >= 1) {
 
 
 
-
-
-}
-
-
-
-
-
 ////////////// end of face 1 (Thinius)//////////////
 
+}
 ////////////// start of face 2 (thickius) //////////////
 /*
  * thinness_value ranges from 0-100 and indicates how thin the face is
