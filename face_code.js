@@ -157,8 +157,6 @@ if (Ear_value > 1) {
     line(-3,-10, 0, -7);
     stroke(56, 214, 39); // green
     line(0,-7, 0,-10);
-
-
   }
 
   ////////////// Face detail (slider 5) //////////////
@@ -166,7 +164,6 @@ if (Ear_value > 1) {
     stroke(arrweight-0.5);
     fill(56, 214, 39);
     ellipse(0, -6, 1,1)
-
   }
 
 ////// tri details //////
@@ -291,8 +288,8 @@ if (eye_value >= 2) {
 
 ////////////// Start of face 3 (Thirdius)//////////////
 
-////////////// head shape //////////////
-function simplePurpleFace(Ear_value, Brow_value) {
+
+function simplePurpleFace(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value, Pup_value) {
 
   let headSize = 10;
   let eyeSize = 2;
@@ -302,6 +299,64 @@ function simplePurpleFace(Ear_value, Brow_value) {
   let MouthDrop = 7;
   let arrweight = 0.3; //stroke weight best working for arrangement
 
+  ////////////// Rotate face (slider 1) //////////////
+  angleMode(DEGREES);
+  rotate(tilt_value);
+  strokeWeight(arrweight);
+
+////////////// Ear detail (slider 7) //////////////
+
+////// Diamond //////
+if (Ear_value < 2 ) {
+  strokeWeight(arrweight);
+  noFill();
+  //fill(224, 27, 27);
+  ellipse(-5.5, -4, 2, 2);//left ear
+  ellipse(5.4, -4, 2, 2);//left ear
+  line(-6.5,-4,-6.5,-1); //left earring
+  line(6.4,-4,6.5,-1); //right earring
+  
+  //rotate squares into diamonds
+  push();
+  fill(224, 27, 27);//red
+  rotate(45);//degrees
+  square(-5.5, 3.7, 1);//left earring diamond
+  square(3.3, -6, 1);//right earring diamond
+  pop();
+}
+
+////// ball //////
+if (Ear_value === 3) {
+  strokeWeight(arrweight);
+  noFill();
+  //fill(224, 27, 27);
+  ellipse(-5.5, -4, 2, 2);//left ear
+  ellipse(5.4, -4, 2, 2);//right ear
+  line(-6.5,-4,-6.5,-1); //left earring
+  line(6.4,-4,6.5,-1); //right earring
+  fill(224, 27, 27); //red
+  ellipse(-6.5, -0.5, 1, 1);//left earring ball
+  ellipse(6.5, -0.5, 1, 1);//right earring ball
+}
+
+////// Tri //////
+if (Ear_value > 1) {
+  strokeWeight(arrweight);
+  noFill();
+  //fill(224, 27, 27);
+  ellipse(-5.5, -4, 2, 2);//left ear
+  ellipse(5.4, -4, 2, 2);//right ear
+  line(-6.5,-4,-6.5,-1); //left earring
+  line(6.4,-4,6.5,-1); //right earring
+  line(-6.5,-4,-6.5,-1); //left earring
+  line(6.4,-4,6.5,-1); //right earring
+  fill(56, 214, 39);//Green
+  triangle(-6.5, -1, -7, 0, -6, 0 ); //left tri
+  triangle(6.5, -1, 7, 0, 6, 0 );// right tri
+}
+
+  
+////////////// head shape //////////////
   fill(255);
   ellipse(0,-5,15,10);
   fill(153, 121, 80); //Brown
@@ -318,26 +373,61 @@ function simplePurpleFace(Ear_value, Brow_value) {
   ellipse( 3, 0, 3);
 
 
+////////////// Face detail (slider 5) //////////////
+if (Fdet_value <= 1) {
+  stroke(arrweight-0.5);
+  fill(255, 217, 114);
+  noStroke();
+  ellipse(-3, 3, 0.5,0.5) //left eye
+  ellipse(-3, 2, 0.5,0.5) //left eye
+  ellipse(3, 3, 0.5,0.5) //right eye
+  ellipse(3, 2, 0.5,0.5) //right eye
+
+
+}
+
+////// tri details //////
+if (Fdet_value === 2) {
+  stroke(0);
+  fill(255, 217, 114);
+  push();
+  rotate(180);
+  triangle(-4,-1,-3,-2.8,-2,-1);
+  triangle(4,-1,3,-2.8,2,-1);
+  pop();
+}
+////// <> //////
+if (Fdet_value === 3) {
+  push();
+  fill(255, 217, 114);
+  textSize(1);
+  rotate(-90);
+  //due to rotation x/y is reversed
+  text('<', -2.5, 3.2); //right side
+  text('<', -2.5, -3); //left side
+  pop();
+}
+
 ////////////// Eyebrow detail (slider 6) //////////////
 
-//////Upwards/////
+//////Angry/////
 if (Brow_value > 2) {
   stroke(arrweight-0.8);
   fill(255, 217, 114);
   rotate(-15);
-  rect(2.5, -4.5, 3,0.5); //Left eyebrow
+  rect(2, -2, 3,0.5); //right eyebrow
   rotate(30);
-  rect(-5, -4.5, 3,0.5); //right eyebrow
+  rect(-4.5, -2, 3,0.5); //left eyebrow
 }
 
-//////Downwards//////
+//////Mono//////
 if (Brow_value < 2) {
   stroke(arrweight-0.8);
   fill(255, 217, 114);
   rotate(-15);
-  rect(-3, -6.5, 3,0.5); //Left eyebrow
-  rotate(30);
-  rect(0, -6.5, 3,0.5); //right eyebrow
+  //rect(-3, -3, 3,0.5); //right eyebrow
+  rotate(15);
+  rect(-5, -2.5, 10,0.5); //left eyebrow
 }
 
 //////side? (idk how to describe it)//////
@@ -347,6 +437,12 @@ if (Brow_value === 2) {
   rect(-4.3, -2.5, 2.8,0.5); //Left eyebrow
   rect(1.7, -2.5, 2.8,0.5);  //right eyebrow
 }
+
+
+
+
+
+
 
 }
 ////////////// End of face 3 (Thirdius) //////////////
