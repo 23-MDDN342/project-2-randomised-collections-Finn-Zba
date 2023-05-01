@@ -67,18 +67,21 @@ function draw () {
         let feather_value = random(0,100);
         let Fdet_value = random(0,100);
         let Brow_value = random(0,100);
+        let Ear_value = random(0,100);
         if(is_cyclops < 10) {
           eye_value = 1;
           tilt_value = random(-5, 5);
           mouth_value = random(5, 10);
           feather_value = random(0,3);
+          Fdet_value = random(0,3);
           Brow_value = random(0,3);  
+          Ear_value = random(0,3);
         
         }
         push();
         translate(x, y);
-        scale(w/25, h/25);
-        orangeAlienFace(tilt_value, eye_value, mouth_value,feather_value, Fdet_value, Brow_value);
+        scale(w/20, h/25);
+        orangeAlienFace(tilt_value, eye_value, mouth_value,feather_value, Fdet_value, Brow_value, Ear_value);
         
         pop();
       }
@@ -88,7 +91,7 @@ function draw () {
         // all other faces
         push();
         translate(x-300, y-500);
-        scale(w/40, h/40);
+        scale(w/30, h/35);
         if((i+j)%2 == 0) {
           simplePurpleFace();
           pop();
@@ -99,6 +102,12 @@ function draw () {
           push();
           thinness_value = random(1);
           blockyFace(thinness_value);
+          translate(x-300, y-700);
+          scale(w/30, h/35)
+          if((i+j)%2 == 0) {
+            blockyFace();
+            pop();
+          }
           
           
         }

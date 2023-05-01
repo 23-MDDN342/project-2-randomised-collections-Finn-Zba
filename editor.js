@@ -39,14 +39,15 @@ function setup () {
   slider9.parent('slider9Container');
   slider10.parent('slider10Container');
 
-  faceGuideCheckbox = createCheckbox('', false);
+  //faceGuideCheckbox = createCheckbox('', false);
+   faceGuideCheckbox = createCheckbox('', true);
   faceGuideCheckbox.parent('checkbox1Container');
 
   faceSelector = createSelect();
   faceSelector.option('Thineus'); //Face 1
   faceSelector.option('Thickius');//Face 2
   faceSelector.option('Thirdius');// Face 3
-  faceSelector.value('Thineus');//Defult Face (Face 1)
+  faceSelector.value('Thirdius');//Defult Face (Face 1)
   faceSelector.parent('selector1Container');
 }
 
@@ -89,7 +90,8 @@ function draw () {
    let feather_value = (map(s4, 0, 100, 1, 3));
    let Fdet_value = (map(s5, 0, 100, 1, 3));
    let Brow_value = (map(s6, 0, 100, 1, 3));
-   orangeAlienFace(tilt_value, eye_value, mouth_value,feather_value, Fdet_value, Brow_value);
+   let Ear_value = (map(s7, 0, 100, 1, 3));
+   orangeAlienFace(tilt_value, eye_value, mouth_value,feather_value, Fdet_value, Brow_value, Ear_value);
   }
 
   if (mode == 'Thickius') {

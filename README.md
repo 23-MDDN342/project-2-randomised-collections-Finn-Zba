@@ -17,3 +17,6 @@ Holy fuck this became a mess. Howver despite a messy code breaking cluster fuck 
 
 26/04/23 pt2
 Finnaly on track with a proper plan, added more details with the slider (simple additions to be fleshed out, but so far theres a functional formula).
+
+27/04/23 
+Adding more meat to the bones (Mouth detail, face detail, eyebrows,Ear)
