@@ -44,8 +44,8 @@ function draw () {
   noStroke();
 
   // draw a 7x4 grid of faces
-  let w = canvasWidth / 2;
-  let h = canvasHeight / 4;
+  let w = canvasWidth / 1;
+  let h = canvasHeight / 1;
   for(let i=0; i<4; i++) {
     for(let j=0; j<7; j++) {
       let y = h/2 + h*i;
@@ -59,6 +59,7 @@ function draw () {
         let Fdet_value = random(1,4);
         let Brow_value = random(1,4);
         let is_cyclops = random(0, 100);
+        let Ear_value = random(0,100);
 
         if(is_cyclops < 10) {
           eye_value = 1;
@@ -67,13 +68,18 @@ function draw () {
           feather_value = random(0,1);
           Fdet_value = random(0,1);
           Brow_value = random(0,1);
+          Ear_value = random(0,1);
         }
 
         push();
         translate(x, y);
-        scale(w/20, h/20);
+        scale(w/50, h/55);
         
-        orangeAlienFace(tilt_value, eye_value, mouth_value,feather_value, Brow_value);
+        orangeAlienFace(tilt_value, eye_value, mouth_value,feather_value, Brow_value, Ear_value);
+
+        
+        //simplePurpleFace(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value);
+        //blockyFace();
         pop();
       
     }

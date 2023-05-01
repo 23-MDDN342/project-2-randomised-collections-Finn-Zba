@@ -32,14 +32,27 @@ function orangeAlienFace(tilt_value, eye_value, mouth_value, feather_value, Fdet
 
 
 ////////////// Ear detail (slider 7) //////////////
-if (Ear_value < 2) {
+
+////// Diamond //////
+if (Ear_value < 2 ) {
   strokeWeight(arrweight);
   noFill();
   //fill(224, 27, 27);
   ellipse(-5.5, -4, 2, 2);//left ear
   ellipse(5.4, -4, 2, 2);//left ear
+  line(-6.5,-4,-6.5,-1); //left earring
+  line(6.4,-4,6.5,-1); //right earring
+  
+  //rotate squares into diamonds
+  push();
+  fill(224, 27, 27);//red
+  rotate(45);//degrees
+  square(-5.5, 3.7, 1);//left earring diamond
+  square(3.3, -6, 1);//right earring diamond
+  pop();
 }
 
+////// ball //////
 if (Ear_value === 3) {
   strokeWeight(arrweight);
   noFill();
@@ -53,6 +66,7 @@ if (Ear_value === 3) {
   ellipse(6.5, -0.5, 1, 1);//right earring ball
 }
 
+////// Tri //////
 if (Ear_value > 1) {
   strokeWeight(arrweight);
   noFill();
@@ -63,6 +77,9 @@ if (Ear_value > 1) {
   line(6.4,-4,6.5,-1); //right earring
   line(-6.5,-4,-6.5,-1); //left earring
   line(6.4,-4,6.5,-1); //right earring
+  fill(56, 214, 39);//Green
+  triangle(-6.5, -1, -7, 0, -6, 0 ); //left tri
+  triangle(6.5, -1, 7, 0, 6, 0 );// right tri
 }
 
 ////////////// head shape //////////////
@@ -74,29 +91,26 @@ if (Ear_value > 1) {
   
 ////////////// Mouth shape (slider 2) //////////////
 
-////// circle //////
-   fill(255); //white
-   stroke(0); //white
-   if (mouth_value < 1) {
-     //fill(0);
-     //ellipse(0,1.1,1,1);
- 
 ////// Rect //////
-   }
-   if (mouth_value > 2) {
+   
+   if (mouth_value < 2) {
      fill(255);
      rect(-2.5,1,5,1.5);
    }
  
  ////// round rect //////
-   if (mouth_value < 2) {
-    //stroke(arrweight-0.8)
+   if (mouth_value > 1) {
      fill(255);
-     //noStroke();
      rect(-2, 1.5, 4, 1, 0.2);
- 
    } 
 
+   ////// circle //////
+   fill(255); //white
+   stroke(0); //black
+   if (mouth_value > 2.9 ) {
+     fill(255); // white
+     ellipse(0,1.5,4.5,2.5); 
+   }
 ////////////// Eye shape (slider 3) //////////////
   
 ////// 2 traditonal eyes //////
@@ -116,37 +130,48 @@ if (Ear_value > 1) {
   }
 
   ////////////// Head detail (slider 4) //////////////
-  // feather
+  // singular feather
   fill(bg_color3);
   stroke(0);
   if (feather_value >= 1) {
-    //fill(0); 
+    //fill(0);                 
     line(0,-7, 0,-10);
+    line(0,-7, 0, -5)
   }
-// feather
+
+////// triple black feather //////
   if (feather_value >= 2) {
     fill(0);
+    stroke(0);
     line(0,-7, 0,-10);
     line(0,-7, 3, -10);
     line(-3,-10, 0, -7);
   }
 
+  ////// triple feather (multi) //////
   if (feather_value >= 3) {
     fill(0);
-    stroke(235, 219, 38);
+    stroke(224, 27, 27); //red
+    line(0,-7, 3, -10);
+    stroke(255, 251, 0); //yellow
+    line(-3,-10, 0, -7);
+    stroke(56, 214, 39); // green
     line(0,-7, 0,-10);
+
+
   }
 
   ////////////// Face detail (slider 5) //////////////
-  if (Fdet_value >= 1) {
+  if (Fdet_value <= 1) {
     stroke(arrweight-0.5);
-    fill(0);
-   // ellipse(0, -5, 1,1)
+    fill(56, 214, 39);
+    ellipse(0, -5, 1,1)
 
   }
 
 ////// tri details //////
   if (Fdet_value === 2) {
+    stroke(0);
     fill(56, 214, 39);
     triangle(-4,-1,-3,-2.8,-2,-1);
     triangle(4,-1,3,-2.8,2,-1);
@@ -204,11 +229,11 @@ if (Brow_value === 2) {
 ////////////// end of face 1 (Thinius)//////////////
 
 }
-////////////// start of face 2 (thickius) //////////////
+////////////// start of face 2 (Thirdius) //////////////
 /*
  * thinness_value ranges from 0-100 and indicates how thin the face is
  */
-function blockyFace(thinness_value) {
+function blockyFace(thinness_value,eye_value) {
 
   ////////////// Face shape//////////////
   noStroke();
@@ -219,32 +244,45 @@ function blockyFace(thinness_value) {
     rect(-4,2,2,3);
 
   
-
-
-
-
-
     // eyes
-    fill(234, 122, 244);
-    ellipse(-2, -4, 1);
-    ellipse( 2, -4, 1);
+
+////// 2 traditonal eyes //////
+if (eye_value === 1 || eye_value == 3) {
+  strokeWeight(arrweight);
+  stroke(0);
+  fill(234, 122, 244); //creamish
+  ellipse(centerX, Iy, eyeSize,eyeSize);
+ 
+}
+////// middle eye //////
+if (eye_value >= 2) {
+  fill(234, 122, 244); //creamish
+  stroke(0);
+  ellipse(centerX - distactBetweenEyes, Iy, eyeSize);
+  ellipse(centerX + distactBetweenEyes, Iy, eyeSize );
+}
+
   }
 
 ////////////// End of face 2 (thickius) //////////////
 
 ////////////// Start of face 3 (Thirdius)//////////////
+
+////////////// head shape //////////////
 function simplePurpleFace() {
   fill(153, 121, 80); //Brown
   noStroke();
-  
   stroke(0);
-  ellipse(0,5,6,8);//bottom shelf of face shape
+  noFill();
+  ellipse(0,5,10,10);//bottom shelf of face shape
+  fill(153, 121, 80); //Brown
   ellipse(0,-2.5,15,15)//top half of face shape
 
-
-  // eyes
+////////////// Eye shape (slider 3) //////////////
   fill(255, 217, 114);
   ellipse(-3, 0, 3);
   ellipse( 3, 0, 3);
 }
+
+
 ////////////// End of face 3 (Thirdius) //////////////

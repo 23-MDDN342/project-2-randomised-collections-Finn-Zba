@@ -47,7 +47,7 @@ function setup () {
   faceSelector.option('Thineus'); //Face 1
   faceSelector.option('Thickius');//Face 2
   faceSelector.option('Thirdius');// Face 3
-  faceSelector.value('Thirdius');//Defult Face (Face 1)
+  faceSelector.value('Thineus');//Defult Face (Face 1)
   faceSelector.parent('selector1Container');
 }
 
@@ -85,21 +85,35 @@ function draw () {
   if (mode == 'Thineus') {
    // draw face using values mapped from 3 sliders
    let tilt_value = map(s1, 0, 100, -90, 90);
-   let mouth_value = map(s2, 0, 100, 0.5, 10);
+   let mouth_value = map(s2, 0, 100, 1, 3);
    let eye_value = int(map(s3, 0, 100, 1, 3));
    let feather_value = (map(s4, 0, 100, 1, 3));
    let Fdet_value = (map(s5, 0, 100, 1, 3));
    let Brow_value = (map(s6, 0, 100, 1, 3));
    let Ear_value = (map(s7, 0, 100, 1, 3));
-   orangeAlienFace(tilt_value, eye_value, mouth_value,feather_value, Fdet_value, Brow_value, Ear_value);
+   orangeAlienFace(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value);
   }
 
   if (mode == 'Thickius') {
-     // let slider value 1 indicate thinness
-     blockyFace(s1);
+    let tilt_value = map(s1, 0, 100, -90, 90);
+    let mouth_value = map(s2, 0, 100, 1, 3);
+    let eye_value = int(map(s3, 0, 100, 1, 3));
+    let feather_value = (map(s4, 0, 100, 1, 3));
+    let Fdet_value = (map(s5, 0, 100, 1, 3));
+    let Brow_value = (map(s6, 0, 100, 1, 3));
+    let Ear_value = (map(s7, 0, 100, 1, 3));
+     blockyFace(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value);
+     
   }
   if (mode == 'Thirdius') {
-    simplePurpleFace();
+    let tilt_value = map(s1, 0, 100, -90, 90);
+    let mouth_value = map(s2, 0, 100, 0.5, 10);
+    let eye_value = int(map(s3, 0, 100, 1, 3));
+    let feather_value = (map(s4, 0, 100, 1, 3));
+    let Fdet_value = (map(s5, 0, 100, 1, 3));
+    let Brow_value = (map(s6, 0, 100, 1, 3));
+    let Ear_value = (map(s7, 0, 100, 1, 3));
+    simplePurpleFace(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value);
   }
 
   pop();
