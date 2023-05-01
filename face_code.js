@@ -13,7 +13,7 @@
  * eye_value is an integer number of eyes: either 0, 1, 2, or 3
  * mouth_value is how open the mouth is and should generally range from 0.5 to 10
  */
-function orangeAlienFace(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value) {
+function orangeAlienFace(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value, Pup_value) {
   const bg_color3 = [122, 67, 43];
   const fg_color3 = [58, 31, 4];
 
@@ -86,13 +86,13 @@ if (Ear_value > 1) {
  // ellipse(centerX, 0, headSize, headSize);
   fill(207, 146, 93); //brown
   stroke(0); //black
-  triangle(-4.8,3.1,0,8,4.9,3.1); //bottom half of mask
+  triangle(-4.7,3.1,0,6.5,4.7,3.1); //bottom half of mask
+  //quad(-4.8,3,-2,6,3,6,4.9,3);
   rect(-5, -7, headSize, headSize); //top half of mask
   
 ////////////// Mouth shape (slider 2) //////////////
 
 ////// Rect //////
-   
    if (mouth_value < 2) {
      fill(255);
      rect(-2.5,1,5,1.5);
@@ -165,7 +165,7 @@ if (Ear_value > 1) {
   if (Fdet_value <= 1) {
     stroke(arrweight-0.5);
     fill(56, 214, 39);
-    ellipse(0, -5, 1,1)
+    ellipse(0, -6, 1,1)
 
   }
 
@@ -217,18 +217,41 @@ if (Brow_value === 2) {
   rect(1.7, -5.5, 2.8,0.5);  //right eyebrow
 }
 
-////////////// Nose detail (slider 8) //////////////
+////////////// Pupil detail (slider 8) //////////////
 
+////// Black //////
+if (Pup_value === 1){
+  noStroke();
+  fill(0);
+  ellipse(-3,-4,0.5,0.5);
+  ellipse(3,-4,0.5,0.5);
+}
+
+////// White //////
+if(Pup_value === 3){
+  noStroke();
+  fill(255);
+  ellipse(-3,-4,0.5,0.5);
+  ellipse(3,-4,0.5,0.5);
+}
+
+////// Empty //////
+if(Pup_value === 2){
+////// This is purposly empty //////
+}
+
+//////Eye changes//////
 
 
 
 ////////////// Beard detail (slider 9) //////////////
 
 
-
+}
 ////////////// end of face 1 (Thinius)//////////////
 
-}
+
+
 ////////////// start of face 2 (Thirdius) //////////////
 /*
  * thinness_value ranges from 0-100 and indicates how thin the face is
@@ -269,20 +292,61 @@ if (eye_value >= 2) {
 ////////////// Start of face 3 (Thirdius)//////////////
 
 ////////////// head shape //////////////
-function simplePurpleFace() {
+function simplePurpleFace(Ear_value, Brow_value) {
+
+  let headSize = 10;
+  let eyeSize = 2;
+  let centerX = 0;
+  let Iy = -4;
+  let distactBetweenEyes = 3;
+  let MouthDrop = 7;
+  let arrweight = 0.3; //stroke weight best working for arrangement
+
+  fill(255);
+  ellipse(0,-5,15,10);
   fill(153, 121, 80); //Brown
   noStroke();
   stroke(0);
   noFill();
-  ellipse(0,5,10,10);//bottom shelf of face shape
-  fill(153, 121, 80); //Brown
-  ellipse(0,-2.5,15,15)//top half of face shape
+  ellipse(0,5,5,5);//bottom shelf of face shape
+  fill(255); //Brown
+  ellipse(0,-1,12,12)//top half of face shape
 
 ////////////// Eye shape (slider 3) //////////////
   fill(255, 217, 114);
   ellipse(-3, 0, 3);
   ellipse( 3, 0, 3);
+
+
+////////////// Eyebrow detail (slider 6) //////////////
+
+//////Upwards/////
+if (Brow_value > 2) {
+  stroke(arrweight-0.8);
+  fill(255, 217, 114);
+  rotate(-15);
+  rect(2.5, -4.5, 3,0.5); //Left eyebrow
+  rotate(30);
+  rect(-5, -4.5, 3,0.5); //right eyebrow
 }
 
+//////Downwards//////
+if (Brow_value < 2) {
+  stroke(arrweight-0.8);
+  fill(255, 217, 114);
+  rotate(-15);
+  rect(-3, -6.5, 3,0.5); //Left eyebrow
+  rotate(30);
+  rect(0, -6.5, 3,0.5); //right eyebrow
+}
 
+//////side? (idk how to describe it)//////
+if (Brow_value === 2) {
+  stroke(arrweight-0.8);
+  fill(255, 217, 114);
+  rect(-4.3, -2.5, 2.8,0.5); //Left eyebrow
+  rect(1.7, -2.5, 2.8,0.5);  //right eyebrow
+}
+
+}
 ////////////// End of face 3 (Thirdius) //////////////

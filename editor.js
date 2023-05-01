@@ -47,7 +47,7 @@ function setup () {
   faceSelector.option('Thineus'); //Face 1
   faceSelector.option('Thickius');//Face 2
   faceSelector.option('Thirdius');// Face 3
-  faceSelector.value('Thineus');//Defult Face (Face 1)
+  faceSelector.value('Thirdius');//Defult Face (Face 1)
   faceSelector.parent('selector1Container');
 }
 
@@ -91,7 +91,8 @@ function draw () {
    let Fdet_value = (map(s5, 0, 100, 1, 3));
    let Brow_value = (map(s6, 0, 100, 1, 3));
    let Ear_value = (map(s7, 0, 100, 1, 3));
-   orangeAlienFace(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value);
+   let Pup_value = (map(s8, 0, 100, 1, 3));
+   orangeAlienFace(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value, Pup_value);
   }
 
   if (mode == 'Thickius') {
@@ -102,6 +103,7 @@ function draw () {
     let Fdet_value = (map(s5, 0, 100, 1, 3));
     let Brow_value = (map(s6, 0, 100, 1, 3));
     let Ear_value = (map(s7, 0, 100, 1, 3));
+    let Pup_value = (map(s8, 0, 100, 1, 3));
      blockyFace(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value);
      
   }
