@@ -262,6 +262,67 @@ function DvaDva(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Br
   rotate(tilt_value);
   strokeWeight(arrweight);
 
+
+  ////////////// Ear detail (slider 7) //////////////
+
+  //top ears
+  if (Ear_value === 2 ) {
+    //left side
+    fill(Dcolor);
+    line(-7,-8,-7,0);
+    ellipse(-7,-8,1,1);
+
+    //right side
+    line(7,-8,7,0);
+    ellipse(7,-8,1,1);   
+  }
+
+  // side
+  if (Ear_value === 1 ) {
+    //right side top
+    fill(Dcolor);
+    line(8,6,5,0);
+    ellipse(8,6,1,1);
+
+    //left side
+    line(-9,-6,-1,0);
+    ellipse(-9,-6,-1,1);
+
+    //right side bottom
+    line(8,-6,5,0);
+    ellipse(8,-6,1,1); 
+
+    //left side bottom
+    line(-8,6,-7,5);
+    ellipse(-8,6,1,1); 
+  }
+
+  if (Ear_value === 3 ) {
+    //left side
+    fill(Dcolor);
+    line(-7,-8,-7,0);
+    ellipse(-7,-8,1,1);
+
+    //right side
+    line(7,-8,7,0);
+    ellipse(7,-8,1,1); 
+    //right side top
+    fill(Dcolor);
+    line(8,6,5,0);
+    ellipse(8,6,1,1);
+
+    //left side
+    line(-9,-6,-1,0);
+    ellipse(-9,-6,-1,1);
+
+    //right side bottom
+    line(8,-6,5,0);
+    ellipse(8,-6,1,1); 
+
+    //left side bottom
+    line(-8,6,-7,5);
+    ellipse(-8,6,1,1); 
+  }
   ////////////// Face shape//////////////
   stroke(arrweight)
     fill(Bcolor);
@@ -502,6 +563,7 @@ if (Ear_value > 1) {
   triangle(-7.5, -1, -8, 0, -7, 0 ); //left tri
   triangle(7.5, -1, 8, 0, 7, 0 );// right tri
 }
+
 
 ////////////// head shape //////////////
   fill(255);
