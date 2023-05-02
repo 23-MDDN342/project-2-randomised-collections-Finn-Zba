@@ -77,7 +77,7 @@ function draw () {
         translate(x, y);
         scale(w/50, h/55);
         
-        orangeAlienFace(tilt_value, eye_value, mouth_value,feather_value, Brow_value, Ear_value, Pup_value);
+        UnoUno(tilt_value, eye_value, mouth_value,feather_value, Brow_value, Ear_value, Pup_value);
 
         
         //simplePurpleFace(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value);

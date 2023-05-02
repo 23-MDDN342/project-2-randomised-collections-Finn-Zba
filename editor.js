@@ -44,10 +44,10 @@ function setup () {
   faceGuideCheckbox.parent('checkbox1Container');
 
   faceSelector = createSelect();
-  faceSelector.option('Thineus'); //Face 1
-  faceSelector.option('Thickius');//Face 2
-  faceSelector.option('Thirdius');// Face 3
-  faceSelector.value('Thirdius');//Defult Face (Face 1)
+  faceSelector.option('Uno-Uno'); //Face 1
+  faceSelector.option('Dva-Dva');//Face 2
+  faceSelector.option('üç-üç');// Face 3
+  faceSelector.value('üç-üç');//Defult Face (Face 1)
   faceSelector.parent('selector1Container');
 }
 
@@ -82,7 +82,7 @@ function draw () {
   scale(face_scale);
 
   push();
-  if (mode == 'Thineus') {
+  if (mode == 'Uno-Uno') {
    // draw face using values mapped from 3 sliders
    let tilt_value = map(s1, 0, 100, -90, 90);
    let mouth_value = map(s2, 0, 100, 1, 3);
@@ -92,10 +92,10 @@ function draw () {
    let Brow_value = (map(s6, 0, 100, 1, 3));
    let Ear_value = (map(s7, 0, 100, 1, 3));
    let Pup_value = (map(s8, 0, 100, 1, 3));
-   orangeAlienFace(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value, Pup_value);
+   UnoUno(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value, Pup_value);
   }
 
-  if (mode == 'Thickius') {
+  if (mode == 'Dva-Dva') {
     let tilt_value = map(s1, 0, 100, -90, 90);
     let mouth_value = map(s2, 0, 100, 1, 3);
     let eye_value = int(map(s3, 0, 100, 1, 3));
@@ -104,10 +104,10 @@ function draw () {
     let Brow_value = (map(s6, 0, 100, 1, 3));
     let Ear_value = (map(s7, 0, 100, 1, 3));
     let Pup_value = (map(s8, 0, 100, 1, 3));
-     blockyFace(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value);
+    DvaDva(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value);
      
   }
-  if (mode == 'Thirdius') {
+  if (mode == 'üç-üç') {
     let tilt_value = map(s1, 0, 100, -90, 90);
     let mouth_value = map(s2, 0, 100, 0.5, 10);
     let eye_value = int(map(s3, 0, 100, 1, 3));
@@ -115,7 +115,7 @@ function draw () {
     let Fdet_value = (map(s5, 0, 100, 1, 3));
     let Brow_value = (map(s6, 0, 100, 1, 3));
     let Ear_value = (map(s7, 0, 100, 1, 3));
-    simplePurpleFace(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value);
+    üçüç(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value);
   }
 
   pop();

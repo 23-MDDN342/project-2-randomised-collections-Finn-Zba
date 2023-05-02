@@ -13,7 +13,9 @@
  * eye_value is an integer number of eyes: either 0, 1, 2, or 3
  * mouth_value is how open the mouth is and should generally range from 0.5 to 10
  */
-function orangeAlienFace(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value, Pup_value) {
+
+//////////////Start of face 1 (Uno-Uno) //////////////
+function UnoUno(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value, Pup_value) {
   const bg_color3 = [122, 67, 43];
   const fg_color3 = [58, 31, 4];
 
@@ -245,15 +247,15 @@ if(Pup_value === 2){
 
 
 }
-////////////// end of face 1 (Thinius)//////////////
+////////////// end of face 1 (Uno-Uno)//////////////
 
 
 
-////////////// start of face 2 (Thirdius) //////////////
+////////////// start of face 2 (Dva-Dva) //////////////
 /*
  * thinness_value ranges from 0-100 and indicates how thin the face is
  */
-function blockyFace(thinness_value,eye_value) {
+function DvaDva(thinness_value,eye_value) {
 
   ////////////// Face shape//////////////
   noStroke();
@@ -283,13 +285,17 @@ if (eye_value >= 2) {
 }
 
   }
-
-////////////// End of face 2 (thickius) //////////////
-
-////////////// Start of face 3 (Thirdius)//////////////
+////////////// End of face 2 (Dva-Dva) //////////////
 
 
-function simplePurpleFace(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value, Pup_value) {
+
+
+
+
+
+
+////////////// Start of face 3 (üç-üç)//////////////
+function üçüç(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value, Pup_value) {
 
   let headSize = 10;
   let eyeSize = 2;
@@ -298,6 +304,7 @@ function simplePurpleFace(tilt_value, eye_value, mouth_value, feather_value, Fde
   let distactBetweenEyes = 3;
   let MouthDrop = 7;
   let arrweight = 0.3; //stroke weight best working for arrangement
+  let Mcolor = [255, 217, 114];
 
   ////////////// Rotate face (slider 1) //////////////
   angleMode(DEGREES);
@@ -311,17 +318,13 @@ if (Ear_value < 2 ) {
   strokeWeight(arrweight);
   noFill();
   //fill(224, 27, 27);
-  ellipse(-5.5, -4, 2, 2);//left ear
-  ellipse(5.4, -4, 2, 2);//left ear
-  line(-6.5,-4,-6.5,-1); //left earring
-  line(6.4,-4,6.5,-1); //right earring
+  line(-7.5,-5.5,-7.4,1); //left earring
   
   //rotate squares into diamonds
   push();
-  fill(224, 27, 27);//red
+  fill(Mcolor);//cream
   rotate(45);//degrees
-  square(-5.5, 3.7, 1);//left earring diamond
-  square(3.3, -6, 1);//right earring diamond
+  square(-5.5, 5, 1);//left earring diamond
   pop();
 }
 
@@ -330,13 +333,11 @@ if (Ear_value === 3) {
   strokeWeight(arrweight);
   noFill();
   //fill(224, 27, 27);
-  ellipse(-5.5, -4, 2, 2);//left ear
-  ellipse(5.4, -4, 2, 2);//right ear
-  line(-6.5,-4,-6.5,-1); //left earring
-  line(6.4,-4,6.5,-1); //right earring
-  fill(224, 27, 27); //red
-  ellipse(-6.5, -0.5, 1, 1);//left earring ball
-  ellipse(6.5, -0.5, 1, 1);//right earring ball
+  line(-7.5,-5,-7.5,-1); //left earring
+  line(7.5,-5,7.5,-1); //right earring
+  fill(Mcolor); //cream
+  ellipse(-7.5, -0.5, 1, 1);//left earring ball
+  ellipse(7.5, -0.5, 1, 1);//right earring ball
 }
 
 ////// Tri //////
@@ -344,22 +345,16 @@ if (Ear_value > 1) {
   strokeWeight(arrweight);
   noFill();
   //fill(224, 27, 27);
-  ellipse(-5.5, -4, 2, 2);//left ear
-  ellipse(5.4, -4, 2, 2);//right ear
-  line(-6.5,-4,-6.5,-1); //left earring
-  line(6.4,-4,6.5,-1); //right earring
-  line(-6.5,-4,-6.5,-1); //left earring
-  line(6.4,-4,6.5,-1); //right earring
-  fill(56, 214, 39);//Green
-  triangle(-6.5, -1, -7, 0, -6, 0 ); //left tri
-  triangle(6.5, -1, 7, 0, 6, 0 );// right tri
+  line(-7.5,-5,-7.5,-1); //left earring
+  line(7.5,-5,7.5,-1); //right earring
+  fill(Mcolor);//cream
+  triangle(-7.5, -1, -8, 0, -7, 0 ); //left tri
+  triangle(7.5, -1, 8, 0, 7, 0 );// right tri
 }
 
-  
 ////////////// head shape //////////////
   fill(255);
   ellipse(0,-5,15,10);
-  fill(153, 121, 80); //Brown
   noStroke();
   stroke(0);
   noFill();
@@ -367,29 +362,103 @@ if (Ear_value > 1) {
   fill(255); //Brown
   ellipse(0,-1,12,12)//top half of face shape
 
+////////////// Mouth shape (slider 2) //////////////
+
+////// higher mouth //////
+if(mouth_value > 1){
+  fill(Mcolor);
+  ellipse(0,2,1);
+}
+
+////// lower mouth //////
+if(mouth_value < 2){
+  fill(Mcolor);
+  ellipse(0,0,1);
+}
+
+////// triple //////
+if(mouth_value === 3){
+  fill(Mcolor);
+  ellipse(0,2,1);
+  ellipse(1,2,1);
+}
+
 ////////////// Eye shape (slider 3) //////////////
-  fill(255, 217, 114);
+
+////// Normal eyes //////
+if (eye_value >1) {
+  fill(Mcolor);
   ellipse(-3, 0, 3);
   ellipse( 3, 0, 3);
+}
 
+////// Single eye //////
+if (eye_value <2) {
+  fill(Mcolor);
+  ellipse(0, 0, 2);
+}
+
+if (eye_value ===3) {
+  fill(Mcolor);
+  ellipse(-3, 0, 3);
+  ellipse( 3, 0, 3);
+}
+
+  ////////////// Head detail (slider 4) //////////////
+  // singular feather
+  stroke(0);
+  if (feather_value === 1) {
+    fill(0);
+    stroke(0);
+    //line(0,-7, 0,-9);
+    line(0,-7, 3, -9.5);
+    line(-3,-9.5, 0, -7);
+    fill(Mcolor);
+    //strokeWeight(arrweight)
+    ellipse(-6,-5,0.5,0.5);//left upper dot
+    ellipse(-4,-7,0.5,0.5);// left lower dot
+    ellipse(6,-5,0.5,0.5);//right upper dot
+    ellipse(4,-7,0.5,0.5);//right lower dot   
+  }
+
+////// triple black feather //////
+  if (feather_value === 2) {
+    fill(0);
+    stroke(0);
+    line(0,-7, 0,-10);
+    line(0,-7, 3, -9.5);
+    line(-3,-9.5, 0, -7);
+    fill(Mcolor);
+    ellipse(0,-5,1,1);
+  }
+
+  ////// triple feather (dotted) //////
+  if (feather_value === 3) {
+    fill(0);
+    ellipse(-6,-5,0.5,0.5);//left upper dot
+    ellipse(-4,-7,0.5,0.5);// left lower dot
+    ellipse(-2,-9,0.5,0.5);// left top dot
+    ellipse(6,-5,0.5,0.5);//right upper dot
+    ellipse(4,-7,0.5,0.5);//right lower dot   
+    ellipse(2,-9,0.5,0.5);// left top dot
+
+  }
 
 ////////////// Face detail (slider 5) //////////////
 if (Fdet_value <= 1) {
   stroke(arrweight-0.5);
-  fill(255, 217, 114);
+  fill(Mcolor);
   noStroke();
   ellipse(-3, 3, 0.5,0.5) //left eye
   ellipse(-3, 2, 0.5,0.5) //left eye
   ellipse(3, 3, 0.5,0.5) //right eye
   ellipse(3, 2, 0.5,0.5) //right eye
-
-
 }
 
 ////// tri details //////
 if (Fdet_value === 2) {
   stroke(0);
-  fill(255, 217, 114);
+  fill(Mcolor);
   push();
   rotate(180);
   triangle(-4,-1,-3,-2.8,-2,-1);
@@ -399,7 +468,7 @@ if (Fdet_value === 2) {
 ////// <> //////
 if (Fdet_value === 3) {
   push();
-  fill(255, 217, 114);
+  fill(Mcolor);
   textSize(1);
   rotate(-90);
   //due to rotation x/y is reversed
@@ -413,7 +482,7 @@ if (Fdet_value === 3) {
 //////Angry/////
 if (Brow_value > 2) {
   stroke(arrweight-0.8);
-  fill(255, 217, 114);
+  fill(Mcolor);
   rotate(-15);
   rect(2, -2, 3,0.5); //right eyebrow
   rotate(30);
@@ -423,7 +492,7 @@ if (Brow_value > 2) {
 //////Mono//////
 if (Brow_value < 2) {
   stroke(arrweight-0.8);
-  fill(255, 217, 114);
+  fill(Mcolor);
   rotate(-15);
   //rect(-3, -3, 3,0.5); //right eyebrow
   rotate(15);
@@ -433,16 +502,10 @@ if (Brow_value < 2) {
 //////side? (idk how to describe it)//////
 if (Brow_value === 2) {
   stroke(arrweight-0.8);
-  fill(255, 217, 114);
+  fill(Mcolor);
   rect(-4.3, -2.5, 2.8,0.5); //Left eyebrow
   rect(1.7, -2.5, 2.8,0.5);  //right eyebrow
 }
 
-
-
-
-
-
-
 }
-////////////// End of face 3 (Thirdius) //////////////
+////////////// End of face 3 (üç-üç) //////////////
