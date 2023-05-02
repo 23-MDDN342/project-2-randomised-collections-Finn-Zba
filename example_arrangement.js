@@ -121,8 +121,10 @@ function draw () {
           //thinness_value = random(1);
           stroke(5);
           üçüç(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value);
-          translate(x-300, y-700);
-          scale(w/30, h/35)
+          //translate(x-300, y-700);
+          scale(w/500, h/450)
+          //translate(x-300, y-700);         
+          DvaDva(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value)
           if((i+j)%2 == 0) {
             pop();
           }
