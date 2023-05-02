@@ -78,7 +78,7 @@ function draw () {
         scale(w/50, h/55);
         
         UnoUno(tilt_value, eye_value, mouth_value,feather_value, Brow_value, Ear_value, Pup_value);
-
+        üçüç(tilt_value, eye_value, mouth_value,feather_value, Brow_value, Ear_value, Pup_value);
         
         //simplePurpleFace(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value);
         //blockyFace();

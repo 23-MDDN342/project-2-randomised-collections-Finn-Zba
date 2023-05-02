@@ -39,15 +39,15 @@ function setup () {
   slider9.parent('slider9Container');
   slider10.parent('slider10Container');
 
-  //faceGuideCheckbox = createCheckbox('', false);
-   faceGuideCheckbox = createCheckbox('', true);
+  faceGuideCheckbox = createCheckbox('', false);
+  //faceGuideCheckbox = createCheckbox('', true);
   faceGuideCheckbox.parent('checkbox1Container');
 
   faceSelector = createSelect();
   faceSelector.option('Uno-Uno'); //Face 1
   faceSelector.option('Dva-Dva');//Face 2
   faceSelector.option('üç-üç');// Face 3
-  faceSelector.value('üç-üç');//Defult Face (Face 1)
+  faceSelector.value('Dva-Dva');//Defult Face (Face 1)
   faceSelector.parent('selector1Container');
 }
 
@@ -84,7 +84,7 @@ function draw () {
   push();
   if (mode == 'Uno-Uno') {
    // draw face using values mapped from 3 sliders
-   let tilt_value = map(s1, 0, 100, -90, 90);
+   let tilt_value = map(s1, 0, 100, -45, 45);
    let mouth_value = map(s2, 0, 100, 1, 3);
    let eye_value = int(map(s3, 0, 100, 1, 3));
    let feather_value = (map(s4, 0, 100, 1, 3));

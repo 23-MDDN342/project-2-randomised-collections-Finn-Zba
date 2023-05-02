@@ -239,16 +239,9 @@ if(Pup_value === 2){
 ////// This is purposly empty //////
 }
 
-//////Eye changes//////
-
-
-
 ////////////// Beard detail (slider 9) //////////////
-
-
 }
 ////////////// end of face 1 (Uno-Uno)//////////////
-
 
 
 ////////////// start of face 2 (Dva-Dva) //////////////
@@ -286,13 +279,6 @@ if (eye_value >= 2) {
 
   }
 ////////////// End of face 2 (Dva-Dva) //////////////
-
-
-
-
-
-
-
 
 ////////////// Start of face 3 (üç-üç)//////////////
 function üçüç(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value, Pup_value) {

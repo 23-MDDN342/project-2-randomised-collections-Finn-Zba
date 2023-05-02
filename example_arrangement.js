@@ -81,6 +81,7 @@ function draw () {
         push();
         translate(x, y);
         scale(w/20, h/25);
+        stroke(5);
         UnoUno(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value);
         
         pop();
@@ -99,13 +100,30 @@ function draw () {
 
 ////////// Face 3 (Thirdius) /////////      
         if (i > 0 ) {
+          let eye_value = 2;
+          let tilt_value = random(-20, 20);
+          let mouth_value = random(1, 4);
+          let is_cyclops = random(0, 100);
+          let feather_value = random(0,100);
+          let Fdet_value = random(0,100);
+          let Brow_value = random(0,100);
+          let Ear_value = random(0,100);
+          if(is_cyclops < 5) {
+            eye_value = 1;  
+            tilt_value = random(-5, 5);
+            mouth_value = random(5, 10);
+            feather_value = random(0,3);
+            Fdet_value = random(0,3);
+            Brow_value = random(0,3);  
+            Ear_value = random(0,3);
+          }
           push();
-          thinness_value = random(1);
-          DvaDva(thinness_value);
+          //thinness_value = random(1);
+          stroke(5);
+          üçüç(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value);
           translate(x-300, y-700);
           scale(w/30, h/35)
           if((i+j)%2 == 0) {
-            DvaDva();
             pop();
           }
           
