@@ -81,7 +81,7 @@ function draw () {
         push();
         translate(x, y);
         scale(w/20, h/25);
-        orangeAlienFace(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value);
+        UnoUno(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value);
         
         pop();
       }
@@ -93,7 +93,7 @@ function draw () {
         translate(x-300, y-500);
         scale(w/30, h/35);
         if((i+j)%2 == 0) {
-          simplePurpleFace(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value);
+          üçüç(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value);
           pop();
         }
 
@@ -101,11 +101,11 @@ function draw () {
         if (i > 0 ) {
           push();
           thinness_value = random(1);
-          blockyFace(thinness_value);
+          DvaDva(thinness_value);
           translate(x-300, y-700);
           scale(w/30, h/35)
           if((i+j)%2 == 0) {
-            blockyFace();
+            DvaDva();
             pop();
           }
           
