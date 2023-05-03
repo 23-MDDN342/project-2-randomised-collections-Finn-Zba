@@ -5,9 +5,10 @@
 The judges are now in session.
 
 The council is now in session, and these onimpitent, everchanging masks will proivide judgement toward your fate. These Masks arent human in orgion as they are everchanging in their appearance. 
+
 They await to give judgment on you galatic misdeeds. 
 
-These are randomised faces the utilize mapping and random to randomly change around features of the masks face to create different appearances and expressions. Here the faces are arranged to look like a galatic council. (akin to - https://pbs.twimg.com/media/E-35zHdWYAYSRg1?format=jpg&name=large)
+These are randomised faces that utilize int-mapping and random to randomly change around features of the masks face to create different appearances and expressions. Here the faces are arranged to look like a galatic council. (akin to - https://pbs.twimg.com/media/E-35zHdWYAYSRg1?format=jpg&name=large)
 
 These 3 Masks (faces) with are all different insperations and shapes in mind with everychanging elements to provide different expressions and elements.
 
