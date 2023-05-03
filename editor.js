@@ -10,7 +10,17 @@ let slider6, slider7, slider8, slider9, slider10;
 let faceSelector;
 let faceGuideCheckbox;
 
+////background
+// image by Andrea Stöckel
+//retrived from https://www.publicdomainpictures.net/en/view-image.php?image=463287&picture=galaxy-cosmos-stars-outer-space 
+let img;
+function preload() {
+  img = loadImage('space.jpg');
+  image(img,0,0,960,500);
+}
+
 function setup () {
+
 
   // create the drawing canvas, save the canvas element
   let main_canvas = createCanvas(canvasWidth, canvasHeight);
@@ -24,9 +34,9 @@ function setup () {
   slider5 = createSlider(0, 100, 50);
   slider6 = createSlider(0, 100, 50);
   slider7 = createSlider(0, 100, 50);
-  slider8 = createSlider(0, 100, 50);
-  slider9 = createSlider(0, 100, 50);
-  slider10 = createSlider(0, 100, 50);
+  //slider8 = createSlider(0, 100, 50);
+  //slider9 = createSlider(0, 100, 50);
+  //slider10 = createSlider(0, 100, 50);
 
   slider1.parent('slider1Container');
   slider2.parent('slider2Container');
@@ -35,29 +45,28 @@ function setup () {
   slider5.parent('slider5Container');
   slider6.parent('slider6Container');
   slider7.parent('slider7Container');
-  slider8.parent('slider8Container');
-  slider9.parent('slider9Container');
-  slider10.parent('slider10Container');
+  //slider8.parent('slider8Container');
+  //slider9.parent('slider9Container');
+  //slider10.parent('slider10Container');
 
   faceGuideCheckbox = createCheckbox('', false);
+  //faceGuideCheckbox = createCheckbox('', true);
   faceGuideCheckbox.parent('checkbox1Container');
 
   faceSelector = createSelect();
-  faceSelector.option('1');
-  faceSelector.option('2');
-  faceSelector.option('3');
-  faceSelector.value('1');
+  faceSelector.option('Uno-Uno'); //Face 1
+  faceSelector.option('Dva-Dva');//Face 2
+  faceSelector.option('üç-üç');// Face 3
+  faceSelector.value('Uno-Uno');//Defult Face (Face 1)
   faceSelector.parent('selector1Container');
 }
-
-
 
 function draw () {
   strokeWeight(0.2);
 
   let mode = faceSelector.value();
 
-  background(bg_color);
+  background(img);
 
   let s1 = slider1.value();
   let s2 = slider2.value();
@@ -66,9 +75,9 @@ function draw () {
   let s5 = slider5.value();
   let s6 = slider6.value();
   let s7 = slider7.value();
-  let s8 = slider8.value();
-  let s9 = slider9.value();
-  let s10 = slider10.value();
+  //let s8 = slider8.value();
+  //let s9 = slider9.value();
+  //let s10 = slider10.value();
 
   let show_face_guide = faceGuideCheckbox.checked();
 
@@ -83,20 +92,43 @@ function draw () {
   scale(face_scale);
 
   push();
-  if (mode == '1') {
+  //Sliders/Map for face 1
+  if (mode == 'Uno-Uno') {
    // draw face using values mapped from 3 sliders
-   let tilt_value = map(s1, 0, 100, -90, 90);
-   let mouth_value = map(s2, 0, 100, 0.5, 10);
+   let tilt_value = map(s1, 0, 100, -45, 45);
+   let mouth_value = map(s2, 0, 100, 1, 3);
    let eye_value = int(map(s3, 0, 100, 1, 3));
-   orangeAlienFace(tilt_value, eye_value, mouth_value);
+   let feather_value = (map(s4, 0, 100, 1, 3));
+   let Fdet_value = (map(s5, 0, 100, 1, 3));
+   let Brow_value = (map(s6, 0, 100, 1, 3));
+   let Ear_value = (map(s7, 0, 100, 1, 3));
+  // let Pup_value = (map(s8, 0, 100, 1, 3));
+   UnoUno(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value);
   }
 
-  if (mode == '2') {
-     // let slider value 1 indicate thinness
-     blockyFace(s1);
+    //Sliders/Map for face 2
+  if (mode == 'Dva-Dva') {
+    let tilt_value = map(s1, 0, 100, -90, 90);
+    let mouth_value = map(s2, 0, 100, 1, 3);
+    let eye_value = int(map(s3, 0, 100, 1, 3));
+    let feather_value = (map(s4, 0, 100, 1, 3));
+    let Fdet_value = (map(s5, 0, 100, 1, 3));
+    let Brow_value = (map(s6, 0, 100, 1, 3));
+    let Ear_value = (map(s7, 0, 100, 1, 3));
+    //let Pup_value = (map(s8, 0, 100, 1, 3));
+    DvaDva(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value);
+     
   }
-  if (mode == '3') {
-    simplePurpleFace();
+    //Sliders/Map for face 2
+  if (mode == 'üç-üç') {
+    let tilt_value = map(s1, 0, 100, -90, 90);
+    let mouth_value = map(s2, 0, 100, 0.5, 10);
+    let eye_value = int(map(s3, 0, 100, 1, 3));
+    let feather_value = (map(s4, 0, 100, 1, 3));
+    let Fdet_value = (map(s5, 0, 100, 1, 3));
+    let Brow_value = (map(s6, 0, 100, 1, 3));
+    let Ear_value = (map(s7, 0, 100, 1, 3));
+    üçüç(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value);
   }
 
   pop();
@@ -105,7 +137,7 @@ function draw () {
     strokeWeight(0.1);
     rectMode(CORNER); 
     noFill()
-    stroke(0, 0, 255);
+    stroke(255, 255, 255);
     rect(-10, -10, 20, 20);
     line(  0, -11,  0, -10);
     line(  0,  10,  0, 11);
@@ -124,3 +156,4 @@ function keyTyped() {
     saveBlocksImages(true);
   }
 }
+

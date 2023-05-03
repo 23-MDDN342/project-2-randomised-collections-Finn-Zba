@@ -1,5 +1,5 @@
 /*
- * This program draws your arrangement of faces on the canvas.
+ * Not much to see here as i did tests with arrangements, not anything buy a test playground
  */
 
 const canvasWidth = 960;
@@ -9,6 +9,8 @@ let curRandomSeed = 0;
 let lastSwapTime = 0;
 const millisPerSwap = 3000;
 
+// global variables for colors
+const bg_color1 = [98, 42, 15];
 function setup () {
   // create the drawing canvas, save the canvas element
   let main_canvas = createCanvas(canvasWidth, canvasHeight);
@@ -24,9 +26,6 @@ function changeRandomSeed() {
   curRandomSeed = curRandomSeed + 1;
   lastSwapTime = millis();
 }
-
-// global variables for colors
-const bg_color1 = [71, 222, 219]
 
 function mouseClicked() {
   changeRandomSeed();
@@ -45,43 +44,46 @@ function draw () {
   noStroke();
 
   // draw a 7x4 grid of faces
-  let w = canvasWidth / 7;
-  let h = canvasHeight / 4;
+  let w = canvasWidth / 1;
+  let h = canvasHeight / 1;
   for(let i=0; i<4; i++) {
     for(let j=0; j<7; j++) {
       let y = h/2 + h*i;
       let x = w/2 + w*j;
-      if (i == 0) {
-        // center face
-        let eye_value = 2;
+     
+//////////////center face //////////////
+        let eye_value = int(random(2,4));
         let tilt_value = random(-45, 45);
-        let mouth_value = random(1, 3);
+        let mouth_value = random(3,4);
+        let feather_value = random(3,4);
+        let Fdet_value = random(1,4);
+        let Brow_value = random(1,4);
         let is_cyclops = random(0, 100);
+        let Ear_value = random(0,100);
+        let Pup_value = random(0,100);
+
         if(is_cyclops < 10) {
           eye_value = 1;
           tilt_value = random(-5, 5);
-          mouth_value = random(5, 10);
+          mouth_value = random(0, 1.7);
+          feather_value = random(0,1);
+          Fdet_value = random(0,1);
+          Brow_value = random(0,1);
+          Ear_value = random(0,1);
+          Pup_value = random(0, 1);
         }
+
         push();
         translate(x, y);
-        scale(w/25, h/25);
-        orangeAlienFace(tilt_value, eye_value, mouth_value);
+        scale(w/50, h/55);
+        
+        UnoUno(tilt_value, eye_value, mouth_value,feather_value, Brow_value, Ear_value, Pup_value);
+        üçüç(tilt_value, eye_value, mouth_value,feather_value, Brow_value, Ear_value, Pup_value);
+        
+        //simplePurpleFace(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value);
+        //blockyFace();
         pop();
-      }
-      else if (i > 0) {
-        // all other faces
-        push();
-        translate(x, y);
-        scale(w/25, h/25);
-        if((i+j)%2 == 0) {
-          simplePurpleFace();
-        }
-        else {
-          thinness_value = random(0, 100);
-          blockyFace(thinness_value);
-        }
-        pop();
-      }
+      
     }
   }
 }
