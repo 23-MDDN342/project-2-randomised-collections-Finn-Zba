@@ -10,7 +10,17 @@ let slider6, slider7, slider8, slider9, slider10;
 let faceSelector;
 let faceGuideCheckbox;
 
+////background
+// image by Andrea Stöckel
+//retrived from https://www.publicdomainpictures.net/en/view-image.php?image=463287&picture=galaxy-cosmos-stars-outer-space 
+let img;
+function preload() {
+  img = loadImage('space.jpg');
+  image(img,0,0,960,500);
+}
+
 function setup () {
+
 
   // create the drawing canvas, save the canvas element
   let main_canvas = createCanvas(canvasWidth, canvasHeight);
@@ -56,7 +66,7 @@ function draw () {
 
   let mode = faceSelector.value();
 
-  background(bg_color);
+  background(img);
 
   let s1 = slider1.value();
   let s2 = slider2.value();
@@ -82,6 +92,7 @@ function draw () {
   scale(face_scale);
 
   push();
+  //Sliders/Map for face 1
   if (mode == 'Uno-Uno') {
    // draw face using values mapped from 3 sliders
    let tilt_value = map(s1, 0, 100, -45, 45);
@@ -95,6 +106,7 @@ function draw () {
    UnoUno(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value);
   }
 
+    //Sliders/Map for face 2
   if (mode == 'Dva-Dva') {
     let tilt_value = map(s1, 0, 100, -90, 90);
     let mouth_value = map(s2, 0, 100, 1, 3);
@@ -107,6 +119,7 @@ function draw () {
     DvaDva(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value);
      
   }
+    //Sliders/Map for face 2
   if (mode == 'üç-üç') {
     let tilt_value = map(s1, 0, 100, -90, 90);
     let mouth_value = map(s2, 0, 100, 0.5, 10);
@@ -124,7 +137,7 @@ function draw () {
     strokeWeight(0.1);
     rectMode(CORNER); 
     noFill()
-    stroke(0, 0, 255);
+    stroke(255, 255, 255);
     rect(-10, -10, 20, 20);
     line(  0, -11,  0, -10);
     line(  0,  10,  0, 11);

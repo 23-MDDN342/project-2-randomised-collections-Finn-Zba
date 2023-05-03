@@ -9,14 +9,12 @@ let curRandomSeed = 0;
 let lastSwapTime = 0;
 const millisPerSwap = 3000;
 
-// global variables for colors
-const bg_color1 = [98, 42, 15];
 function setup () {
   // create the drawing canvas, save the canvas element
   let main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
 
-  curRandomSeed = int(random(0, 1000));
+  curRandomSeed = int(random(1, 1000));
 
   // rotation in degrees
   angleMode(DEGREES);
@@ -25,6 +23,16 @@ function setup () {
 function changeRandomSeed() {
   curRandomSeed = curRandomSeed + 1;
   lastSwapTime = millis();
+}
+
+////background
+// image by Andrea Stöckel
+//retrived from https://www.publicdomainpictures.net/en/view-image.php?image=463287&picture=galaxy-cosmos-stars-outer-space 
+const bg_color1 = [51, 50, 46];
+let img;
+function preload() {
+  img = loadImage('space.jpg');
+  image(img,0,0,960,500);
 }
 
 function mouseClicked() {
@@ -40,53 +48,71 @@ function draw () {
   randomSeed(curRandomSeed);
 
   // clear screen
-  background(bg_color1);
+  background(img);
   noStroke();
 
-  // draw a 7x4 grid of faces
-  let w = canvasWidth / 1;
+
+///////// Grid settings /////////
+  // draw a 3x1 grid of faces
+  //This is the council of masks
+
+  let w = canvasWidth / 3;
   let h = canvasHeight / 1;
-  for(let i=0; i<4; i++) {
-    for(let j=0; j<7; j++) {
-      let y = h/2 + h*i;
-      let x = w/2 + w*j;
-     
-//////////////center face //////////////
-        let eye_value = int(random(2,4));
-        let tilt_value = random(-45, 45);
-        let mouth_value = random(3,4);
-        let feather_value = random(3,4);
-        let Fdet_value = random(1,4);
-        let Brow_value = random(1,4);
-        let is_cyclops = random(0, 100);
-        let Ear_value = random(0,100);
-        let Pup_value = random(0,100);
+  for(let i=0; i<3; i++) {
+    for(let j=0; j<1; j++) {
+      let y = h+0  + h*i;
+      let x = w+0 + w*j;
+      let m = 1;
+    
+    
+///////// Face 1 (Uno-Uno) /////////    
+      if (i === 0) {
 
-        if(is_cyclops < 10) {
-          eye_value = 1;
-          tilt_value = random(-5, 5);
-          mouth_value = random(0, 1.7);
-          feather_value = random(0,1);
-          Fdet_value = random(0,1);
-          Brow_value = random(0,1);
-          Ear_value = random(0,1);
-          Pup_value = random(0, 1);
+        let eye_value = int(random(1,4));
+        let tilt_value = int(random(15, -15));
+        let mouth_value = int(random(1, 4));
+        let feather_value = int(random(1,4));
+        let Fdet_value = int(random(0,4));
+        let Brow_value = int(random(1,4));
+        let Ear_value = int(random(1,4));
+        if(i < 1) {
+          eye_value = int(random(1,4));  
+          tilt_value = random(15, -15);
+          mouth_value = int(random(1, 4));
+          feather_value = int(random(1,4));
+          Fdet_value = int(random(0,4));
+          Brow_value = int(random(0,4));  
+          Ear_value = int(random(0,4));
+        
         }
-
+        // Face 1 (center)
+        stroke(5);
         push();
-        translate(x, y);
-        scale(w/50, h/55);
-        
-        UnoUno(tilt_value, eye_value, mouth_value,feather_value, Brow_value, Ear_value, Pup_value);
-        üçüç(tilt_value, eye_value, mouth_value,feather_value, Brow_value, Ear_value, Pup_value);
-        
-        //simplePurpleFace(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value);
-        //blockyFace();
+        translate(x+150, y-250);
+        scale(w/30, h/35);
+        stroke(5);
+        UnoUno(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value);
         pop();
-      
-    }
-  }
-}
+
+        //Face 2 (right)
+        push();
+        translate(x+450, y-200);
+        scale(w/30, h/35);
+        tilt_value = int(random(-20, 0));
+        DvaDva(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value);
+        pop();
+
+
+       //Face 3 (left)
+        push();
+        translate(x-150, y-200);
+        scale(w/30, h/35);
+        tilt_value = int(random(0, 20));
+        üçüç(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value)
+        pop();
+;
+
+      }
 
 function keyTyped() {
   if (key == '!') {
@@ -94,5 +120,8 @@ function keyTyped() {
   }
   else if (key == '@') {
     saveBlocksImages(true);
+  }
+}
+}
   }
 }
