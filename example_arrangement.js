@@ -26,7 +26,12 @@ function changeRandomSeed() {
 }
 
 // global variables for colors
-const bg_color1 = [98, 42, 15];
+const bg_color1 = [51, 50, 46];
+let img;
+function preload() {
+  img = loadImage('space.jpg');
+  image(img,960,500);
+}
 
 function mouseClicked() {
   changeRandomSeed();
@@ -53,63 +58,77 @@ function draw () {
   let h = canvasHeight / 1;
   for(let i=0; i<3; i++) {
     for(let j=0; j<1; j++) {
-      let y = h/2  + h*i;
-      let x = w+150 + w*j;
+      let y = h+0  + h*i;
+      let x = w+0 + w*j;
+      let m = 1;
     
     
-///////// Face 1 (Thineus) /////////    
-      if (i == 0) {
+///////// Face 1 (Uno-Uno) /////////    
+      if (i === 0) {
 
-        let eye_value = 2;
-        let tilt_value = random(-20, 20);
-        let mouth_value = random(1, 4);
-        let is_cyclops = random(0, 100);
-        let feather_value = random(0,100);
-        let Fdet_value = random(0,100);
-        let Brow_value = random(0,100);
-        let Ear_value = random(0,100);
-        if(is_cyclops < 5) {
-          eye_value = 1;  
-          tilt_value = random(-5, 5);
-          mouth_value = random(5, 10);
-          feather_value = random(0,3);
-          Fdet_value = random(0,3);
-          Brow_value = random(0,3);  
-          Ear_value = random(0,3);
+        let eye_value = int(random(1,2,3));
+        let tilt_value = int(random(-10, 10));
+        let mouth_value = int(random(1, 3));
+        //let is_cyclops = randomint((1, 3));
+        let feather_value = int(random(1,3));
+        let Fdet_value = int(random(0,3));
+        let Brow_value = int(random(1,3));
+        let Ear_value = int(random(1,3));
+        if(i < 1) {
+          eye_value = int(random(1,2,3));  
+          tilt_value = random(-10, 10);
+          mouth_value = int(random(1, 3));
+          feather_value = int(random(1,3));
+          Fdet_value = int(random(0,3));
+          Brow_value = int(random(0,3));  
+          Ear_value = int(random(0,3));
         
         }
+        stroke(5);
         push();
-        translate(x, y);
-        scale(w/20, h/25);
+        translate(x+150, y-200);
+        scale(w/30, h/35);
         stroke(5);
         UnoUno(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value);
-        
         pop();
+
+
+        push();
+        translate(x+450, y-200);
+        scale(w/30, h/35);
+        DvaDva(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value);
+        pop();
+
+
+
+        push();
+        translate(x-150, y-200);
+        scale(w/30, h/35);
+        üçüç(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value)
+        pop();
+;
+
       }
-      else if (i > 0) {
-///////// Face 2 (Thickius) /////////
+
+/*      
+      else if (m === 01) {
+///////// Face 2 (Dva-Dva) /////////
 
         // all other faces
         push();
-        translate(x-300, y-500);
+        translate(x=175, y=250);
         scale(w/30, h/35);
-        if((i+j)%2 == 0) {
-          üçüç(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value);
-          pop();
-        }
-
-////////// Face 3 (Thirdius) /////////      
-        if (i > 0 ) {
-          let eye_value = 2;
+        if((i+j)%2 === 0) {
+          let eye_value = random(1,3);
           let tilt_value = random(-20, 20);
           let mouth_value = random(1, 4);
-          let is_cyclops = random(0, 100);
-          let feather_value = random(0,100);
-          let Fdet_value = random(0,100);
-          let Brow_value = random(0,100);
-          let Ear_value = random(0,100);
-          if(is_cyclops < 5) {
-            eye_value = 1;  
+          let is_cyclops = random(0, 3);
+          let feather_value = random(1,3);
+          let Fdet_value = random(1,3);
+          let Brow_value = random(1,3);
+          let Ear_value = random(1,3);
+          if(is_cyclops === 0) {
+            eye_value = random(1,3);  
             tilt_value = random(-5, 5);
             mouth_value = random(5, 10);
             feather_value = random(0,3);
@@ -117,25 +136,53 @@ function draw () {
             Brow_value = random(0,3);  
             Ear_value = random(0,3);
           }
-          push();
+
+
+            DvaDva(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value)
+          pop();
+        }
+
+////////// Face 3 (üçüç) /////////      
+      else if (j === 0 ) {
+        push();
+          translate(x, y);
+          scale(w/200, h/250);
+          let eye_value = random(1,3);
+          let tilt_value = random(-20, 20);
+          let mouth_value = random(1, 4);
+          let is_cyclops = random(0, 3);
+          let feather_value = random(1,3);
+          let Fdet_value = random(1,3);
+          let Brow_value = random(1,3);
+          let Ear_value = random(1,3);
+          if(is_cyclops === 0) {
+            eye_value = random(1,3);  
+            tilt_value = random(-5, 5);
+            mouth_value = random(5, 10);
+            feather_value = random(0,3);
+            Fdet_value = random(0,3);
+            Brow_value = random(0,3);  
+            Ear_value = random(0,3);
+          }
           //thinness_value = random(1);
           stroke(5);
           üçüç(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value);
           //translate(x-300, y-700);
-          scale(w/500, h/450)
+          //scale(w/500, h/450)
           //translate(x-300, y-700);         
-          DvaDva(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value)
           if((i+j)%2 == 0) {
             pop();
           }
           
           
         }
-        pop();
+       // pop();
       }
     }
   }
+
 }
+*/
 //          blockyFace(thinness_value)
 function keyTyped() {
   if (key == '!') {
@@ -143,5 +190,8 @@ function keyTyped() {
   }
   else if (key == '@') {
     saveBlocksImages(true);
+  }
+}
+}
   }
 }

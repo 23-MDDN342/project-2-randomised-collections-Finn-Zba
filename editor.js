@@ -24,9 +24,9 @@ function setup () {
   slider5 = createSlider(0, 100, 50);
   slider6 = createSlider(0, 100, 50);
   slider7 = createSlider(0, 100, 50);
-  slider8 = createSlider(0, 100, 50);
-  slider9 = createSlider(0, 100, 50);
-  slider10 = createSlider(0, 100, 50);
+  //slider8 = createSlider(0, 100, 50);
+  //slider9 = createSlider(0, 100, 50);
+  //slider10 = createSlider(0, 100, 50);
 
   slider1.parent('slider1Container');
   slider2.parent('slider2Container');
@@ -35,9 +35,9 @@ function setup () {
   slider5.parent('slider5Container');
   slider6.parent('slider6Container');
   slider7.parent('slider7Container');
-  slider8.parent('slider8Container');
-  slider9.parent('slider9Container');
-  slider10.parent('slider10Container');
+  //slider8.parent('slider8Container');
+  //slider9.parent('slider9Container');
+  //slider10.parent('slider10Container');
 
   faceGuideCheckbox = createCheckbox('', false);
   //faceGuideCheckbox = createCheckbox('', true);
@@ -47,7 +47,7 @@ function setup () {
   faceSelector.option('Uno-Uno'); //Face 1
   faceSelector.option('Dva-Dva');//Face 2
   faceSelector.option('üç-üç');// Face 3
-  faceSelector.value('Dva-Dva');//Defult Face (Face 1)
+  faceSelector.value('Uno-Uno');//Defult Face (Face 1)
   faceSelector.parent('selector1Container');
 }
 
@@ -65,9 +65,9 @@ function draw () {
   let s5 = slider5.value();
   let s6 = slider6.value();
   let s7 = slider7.value();
-  let s8 = slider8.value();
-  let s9 = slider9.value();
-  let s10 = slider10.value();
+  //let s8 = slider8.value();
+  //let s9 = slider9.value();
+  //let s10 = slider10.value();
 
   let show_face_guide = faceGuideCheckbox.checked();
 
@@ -91,8 +91,8 @@ function draw () {
    let Fdet_value = (map(s5, 0, 100, 1, 3));
    let Brow_value = (map(s6, 0, 100, 1, 3));
    let Ear_value = (map(s7, 0, 100, 1, 3));
-   let Pup_value = (map(s8, 0, 100, 1, 3));
-   UnoUno(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value, Pup_value);
+  // let Pup_value = (map(s8, 0, 100, 1, 3));
+   UnoUno(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value);
   }
 
   if (mode == 'Dva-Dva') {
@@ -103,7 +103,7 @@ function draw () {
     let Fdet_value = (map(s5, 0, 100, 1, 3));
     let Brow_value = (map(s6, 0, 100, 1, 3));
     let Ear_value = (map(s7, 0, 100, 1, 3));
-    let Pup_value = (map(s8, 0, 100, 1, 3));
+    //let Pup_value = (map(s8, 0, 100, 1, 3));
     DvaDva(tilt_value, eye_value, mouth_value, feather_value, Fdet_value,Brow_value, Ear_value);
      
   }
