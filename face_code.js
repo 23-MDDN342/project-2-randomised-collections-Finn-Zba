@@ -1,17 +1,6 @@
 /*
  * This file should contain code that draws your faces.
- *
- * Each function takes parameters and draws a face that is within
- * the bounding box (-10, -10) to (10, 10).
- *
- * These functions are used by your final arrangement of faces as well as the face editor.
- */
-
-
-/*
- * tilt_value is in degrees
- * eye_value is an integer number of eyes: either 0, 1, 2, or 3
- * mouth_value is how open the mouth is and should generally range from 0.5 to 10
+ * All three faces are here and devided into different sections
  */
 
 //////////////Start of face 1 (Uno-Uno) //////////////
@@ -593,7 +582,7 @@ if(mouth_value < 2){
 if(mouth_value === 3){
   fill(Mcolor);
   ellipse(0,2,1);
-  ellipse(1,2,1);
+  //ellipse(1,2,1);
 }
 
 ////////////// Eye shape (slider 3) //////////////

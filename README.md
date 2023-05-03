@@ -2,21 +2,19 @@
 ## 2023 MDDN342 Assignment 2: Randomised Collections
 **This is where you talk about your project!**
 
->This starter code is just some simple faces being drawn. 
->(late), git commit of sketches
+The judges are now in session.
 
+The council is now in session, and these onimpitent, everchanging masks will proivide judgement toward your fate. These Masks arent human in orgion as they are everchanging in their appearance. 
+They await to give judgment on you galatic misdeeds. 
 
-18/04/23
-Made a face and learnt about how to utilize the editor. basicly practice and play with the masks shape of a triangle/ellipse. 
+These are randomised faces the utilize mapping and random to randomly change around features of the masks face to create different appearances and expressions. Here the faces are arranged to look like a galatic council. (akin to - https://pbs.twimg.com/media/E-35zHdWYAYSRg1?format=jpg&name=large)
 
-21/04/23
-I fucked round and found out and now everythings a mess
+These 3 Masks (faces) with are all different insperations and shapes in mind with everychanging elements to provide different expressions and elements.
 
-26/04/23 pt1
-Holy fuck this became a mess. Howver despite a messy code breaking cluster fuck of a past 7 days (breaking a code/erasing it), we have a slight bit of content. here the arrangment (council of masks) has been made as well as a better representation  putting the ui on what i want to add to my masks. 
+Mask 1 (uno uno) - Spanish for 1 and the main council, Uno as the first to be made/designed and although rougher in apperance, created the bones for the code behind the other masks. This design was mainly inspuired by aku-aku / uka-uka from the creash bandicoot franchise. '
 
-26/04/23 pt2
-Finnaly on track with a proper plan, added more details with the slider (simple additions to be fleshed out, but so far theres a functional formula).
+Mask 2 - (Dva-Dva) - Czeh for 2, and the second mask made/designed, Dvas unqie shape was ispired by the late rapper MF dooms masks or more commonly knowen as a roman gladiator mask. Its sepcific detailing is inspire the Braniac, the classic DC comics superman villian 
+(mainly his apperance in the video game injustice 2)
 
-27/04/23 
-Adding more meat to the bones (Mouth detail, face detail, eyebrows,Ear)
+Mask 3 (üç-üç) - Turkish for 3, amd the final mask of the council, This one was less inspired by other elements. the shape itself was another call back to the crash bandicoot franchice, although this specificly as the quantium masks from the 4th game.
+
